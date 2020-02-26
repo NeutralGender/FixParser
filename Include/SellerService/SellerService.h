@@ -25,14 +25,14 @@ public:
     ~SellerService();
 
     void ReadDataFromFile( const std::string& path_to_read );
-    void ParseData(ParserAbstract* parser);
+    void ParseData( ParserAbstract* parser );
     void MergeParsedData( const std::string& path_to_read );
     void WriteFromTableIntoFile( DBDriver* driver, 
                                  const std::string& table_name,
                                  const std::string& path_to_file );
 
     // DB functions:
-    void ConnectToDB(DBDriver* dbdriver);
+    void ConnectToDB( DBDriver* dbdriver );
     void CreateTable( DBDriver* dbdriver, const std::string& table_name );
     void DropTable( DBDriver* dbdriver, const std::string& table_name );
 
@@ -44,6 +44,7 @@ public:
                              const std::string& table_name 
                            );
 
+    // Parser functions:
     void CreateTicker( ParserAbstract* parser );
 
     void UpdataTicker_quantity( DBDriver* dbdriver, 

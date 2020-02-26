@@ -353,13 +353,6 @@ void DBDriverPostrgres::if_exist_db(const std::string& user, const std::string& 
 
 void DBDriverPostrgres::insert_error(const std::string& user, const std::string& table)
 {
-	/*
-	CREATE TABLE IF NOT EXISTS error_log\
-									(\"Function\" text, \"QuantityReceived\" text,\
-									\"Ticker\" text, \"Date\" timestamp NOT NULL);\
-	*/
-
-
 	try
 	{
 		pqxx::work w(conn);
@@ -524,9 +517,9 @@ void DBDriverPostrgres::rise_db( std::map<std::string,std::pair<int,double>>& ti
 	{
 		select_column_name(conn, table, write_data);
 
-		auto f = std::bind(select_, std::placeholders::_1);
+		auto functional = std::bind(select_, std::placeholders::_1);
 
-		std::string sql = f(table);
+		std::string sql = functional(table);
 
 		pqxx::nontransaction nontransact(conn);
 		pqxx::result res(nontransact.exec(sql));

@@ -11,10 +11,10 @@ class TimerDB
 public:
     TimerDB();
     ~TimerDB();
-    void activate(std::chrono::milliseconds delay,
-                  std::string script_name,
-                  std::string db,
-                  std::string mode);
+    void activate( std::chrono::milliseconds delay,
+                   std::string script_name,
+                   std::string db,
+                   std::string mode);
 
 private:
 

@@ -9,7 +9,7 @@
 class Write
 {
 public:
-	explicit Write(const std::string &path) : wr(path,std::ios_base::trunc) {}
+	explicit Write( const std::string &path ) : wr( path, std::ios_base::trunc ) {}
 	~Write();
 
 	void write_to_file( const std::vector< std::vector< std::string > >& write_data );

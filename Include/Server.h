@@ -27,8 +27,8 @@ class DBDriver;
 class Server
 {
 public:
-	Server(const std::string&& ip_addr_,
-		   const std::string&& port_) : ip_addr(ip_addr_), port(port_),
+	Server( const std::string&& ip_addr_,
+		    const std::string&& port_) : ip_addr(ip_addr_), port(port_),
 										BeginString("SND:8=FIX.4.2")
 	{
 	}
@@ -46,14 +46,14 @@ public:
                );
 
 	//int recvdata(Parser&, DBDriver&,int&);	
-	int parse_rcvdata(const std::string&);
+	int parse_rcvdata( const std::string& );
 
 	void CheckParse( std::map <std::string,std::pair<int,double>> ticket_quantity,
                      DBDriver* db, 
                      std::string& quote);
 
 	template <std::size_t SIZE>
-		std::string quote_string(std::array<int, SIZE>& arr);
+		std::string quote_string( std::array<int, SIZE>& arr );
 
 	std::string send_reject( const std::string& error_string );
 
